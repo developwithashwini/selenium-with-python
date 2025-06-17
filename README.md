@@ -220,4 +220,4 @@ This repository is a complete and industry-relevant learning resource for master
     
     E-commerce cart flow automation
 
-[Next>>](02-Chapter 2 Selenium With Python Fundamentals/readme.md)
+[Next ➡️](02-Chapter 2 Selenium With Python Fundamentals/readme.md)
