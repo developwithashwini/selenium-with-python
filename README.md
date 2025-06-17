@@ -4,6 +4,7 @@ This repository is a complete and industry-relevant learning resource for master
 ## Topics Covered
 🔹 2. Selenium with Python – Fundamentals
 ✅ Topics:
+    
     What is Selenium? Architecture Overview
     
     Installation & Environment Setup
@@ -22,6 +23,7 @@ This repository is a complete and industry-relevant learning resource for master
 
 🔹 3. Selenium WebDriver – Core Concepts
 ✅ Topics:
+    
     Working with Web Elements:
     
     find_element, find_elements
@@ -56,6 +58,7 @@ This repository is a complete and industry-relevant learning resource for master
     
 🔹 4. Selenium Advanced Topics
 ✅ Topics:
+    
     Handling Dynamic Web Elements
     
     Working with Tables and Pagination
@@ -74,6 +77,7 @@ This repository is a complete and industry-relevant learning resource for master
 
 🔹 5. Selenium Framework Architecture
 ✅ Topics:
+    
     Folder structure of Automation Framework
     
     Page Object Model (POM) Design Pattern
@@ -88,6 +92,7 @@ This repository is a complete and industry-relevant learning resource for master
 
 🔹 6. Pytest – Testing Framework
 ✅ Topics:
+    
     Introduction to Pytest
     
     Installing and Running Pytest
@@ -120,6 +125,7 @@ This repository is a complete and industry-relevant learning resource for master
     
 🔹 7. Pytest + Selenium Integration
 ✅ Topics:
+    
     Writing Selenium Tests using Pytest
     
     Using Fixtures to initialize and quit the WebDriver
@@ -140,6 +146,7 @@ This repository is a complete and industry-relevant learning resource for master
 
 🔹 8. Test Automation Utilities
 ✅ Topics:
+    
     Logging with Python (logging module)
     
     Screenshot capture on failure
@@ -154,6 +161,7 @@ This repository is a complete and industry-relevant learning resource for master
 
 🔹 9. Parallel Execution and Grid
 ✅ Topics:
+    
     Parallel Execution with:
     
     pytest-xdist
@@ -184,6 +192,7 @@ This repository is a complete and industry-relevant learning resource for master
 
 🔹 11. BDD with Selenium + Python (Optional but Beneficial)
 ✅ Topics:
+    
     Introduction to BDD
     
     Gherkin Syntax: Feature, Scenario, Given-When-Then
@@ -195,9 +204,10 @@ This repository is a complete and industry-relevant learning resource for master
     Generating BDD Reports
 
 🔹 12. Real-World Projects and Scenarios
-Apply concepts through practice:
+    Apply concepts through practice:
 
 ✅ Projects:
+    
     Automating a login + logout workflow
     
     Validating a search functionality with dynamic results
