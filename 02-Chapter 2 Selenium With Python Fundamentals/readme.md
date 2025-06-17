@@ -179,3 +179,217 @@
         -Selenium WebDriver	✅ Actively used	✅ Yes (Main Tool)	Fast, robust, programmable, supports real-world scenarios
         -Selenium Grid	✅ Actively used	✅ Yes (CI/CD)	Enables parallel, distributed, cross-browser testing
         
+🛠️ 2.3 Installation & Environment Setup
+
+        Step-by-Step Installation:
+        ✅ Step 1: Install Python
+        Download and install Python from https://python.org. Make sure to tick "Add Python to PATH" during installation.
+        
+       
+        python --version
+        ✅ Step 2: Install Selenium Library
+      
+        pip install selenium
+
+🧪 2.4 First Selenium Test Script in Python
+
+    ✅ Test Case: Open Google and search for "Selenium"
+   
+    from selenium import webdriver
+    from selenium.webdriver.common.by import By
+    import time
+    
+    # Step 1: Initialize browser
+    driver = webdriver.Chrome()  # make sure chromedriver is in PATH
+    
+    # Step 2: Open URL
+    driver.get("https://www.google.com")
+    
+    # Step 3: Find input box and search
+    search_box = driver.find_element(By.NAME, "q")
+    search_box.send_keys("Selenium")
+    search_box.submit()
+    
+    # Step 4: Wait and close
+    time.sleep(5)
+    driver.quit()
+
+🔍 2.5 Locators in Selenium
+Locators help Selenium find elements on a webpage (like buttons, input boxes, etc.).
+
+        Common Locator Strategies:
+        Locator Type	Method Example
+        ID	find_element(By.ID, "username")
+        Name	find_element(By.NAME, "email")
+        Class Name	find_element(By.CLASS_NAME, "btn")
+        Tag Name	find_element(By.TAG_NAME, "input")
+        Link Text	find_element(By.LINK_TEXT, "Click Here")
+        Partial Link Text	find_element(By.PARTIAL_LINK_TEXT, "Click")
+        XPath	find_element(By.XPATH, "//input[@id='search']")
+        CSS Selector	find_element(By.CSS_SELECTOR, "input[name='q']")
+
+✅ Examples of Each Locator
+
+        1️⃣ ID Locator
+       
+        driver.find_element(By.ID, "username").send_keys("admin")
+        2️⃣ Name Locator
+       
+        driver.find_element(By.NAME, "password").send_keys("admin123")
+        3️⃣ Class Name Locator
+        
+        driver.find_element(By.CLASS_NAME, "login-button").click()
+        4️⃣ Tag Name Locator
+       
+        all_links = driver.find_elements(By.TAG_NAME, "a")
+        for link in all_links:
+            print(link.text)
+        5️⃣ Link Text Locator
+       
+        driver.find_element(By.LINK_TEXT, "Forgot Password?").click()
+        6️⃣ Partial Link Text
+       
+        driver.find_element(By.PARTIAL_LINK_TEXT, "Forgot").click()
+
+✅ What is XPath?
+
+        XPath (XML Path Language) is a query language used to locate elements based on their hierarchy and attributes in an XML or HTML document.
+        
+        In Selenium, XPath is a powerful locator strategy that allows you to select elements with:
+        
+        No unique id or name
+        
+        Nested inside other elements
+        
+        Dynamic attributes
+        
+        🤔 Why use XPath?
+        When ID or class names are missing or dynamic
+        
+        When elements are deeply nested
+        
+        When you want to select elements based on text, relationships, or conditions
+        
+        🧠 Types of XPath
+        1️⃣ Absolute XPath
+        It starts from the root of the HTML document and goes through each node until the desired element.
+        
+        Syntax:
+        
+        /html/body/div[1]/form/input[2]
+        Example in Selenium:
+        
+        driver.find_element(By.XPATH, "/html/body/div[1]/form/input[2]")
+        ❌ Disadvantages:
+        Very brittle – breaks if anything in the path changes
+        
+        Not recommended for automation
+        
+        2️⃣ Relative XPath ✅ (Most commonly used)
+        It starts from the middle of the document, not the root.
+        
+        Syntax:
+        
+        //tagname[@attribute='value']
+        Example:
+          
+        driver.find_element(By.XPATH, "//input[@id='username']")
+        Breakdown:
+        
+        // → anywhere in the document
+        
+        input → the tag name
+        
+        [@id='username'] → condition on attribute
+        
+        🔍 XPath Syntax Variants and Examples
+        ✅ By Attribute:
+       
+        //input[@name='email']
+        ✅ Using contains() – when attribute values are dynamic
+       
+        //input[contains(@name, 'user')]
+        ✅ Using starts-with() – matches beginning of attribute value
+      
+        //input[starts-with(@id, 'user')]
+        ✅ By Text Content:
+      
+        //button[text()='Submit']
+        ✅ Using contains(text(), 'PartText')
+      
+        //a[contains(text(), 'Login')]
+        🔗 XPath Axes (Advanced but Powerful)
+        XPath axes are used to navigate around an element (parents, siblings, children).
+        
+        📌 parent:: – selects the parent of the current node
+       
+        //input[@id='email']/parent::div
+        📌 following-sibling:: – next sibling in the DOM
+       
+        //label[text()='Username']/following-sibling::input
+        📌 preceding-sibling:: – previous sibling
+        
+        //input[@id='password']/preceding-sibling::label
+        📌 ancestor:: – selects any ancestor (like parent, grandparent)
+       
+        //span[text()='Login']/ancestor::form
+        🛠 Real World Example
+        Let’s say your HTML looks like this:
+        
+        <div class="form">
+            <label for="email">Email:</label>
+            <input type="text" name="email" id="emailInput" />
+        </div>
+        Example 1: Locate input using ID
+    
+        driver.find_element(By.XPATH, "//input[@id='emailInput']")
+        Example 2: Locate using label text and sibling input
+     
+        driver.find_element(By.XPATH, "//label[text()='Email:']/following-sibling::input")
+        🚨 Common Mistakes to Avoid
+        Mistake	Description
+        Using Absolute XPath	Breaks with minor layout changes
+        Typos in tag/attribute names	XPath is case-sensitive
+        Not escaping quotes properly	' and " must be used correctly
+        
+        ✅ Best Practices
+        Use relative XPath over absolute.
+        
+        Combine multiple conditions for better accuracy:
+        
+        //input[@type='text' and @name='username']
+        Use contains() or starts-with() for dynamic attributes.
+        
+        Avoid long chains like /html/body/div/div[2]/table/tr/td[2]
+        
+        ✅ Summary Table
+        Syntax	Description	Example
+        //tag[@attr='value']	Basic selector	//input[@id='user']
+        contains()	Partial match	//a[contains(text(),'Sign')]
+        starts-with()	Start of attribute	//input[starts-with(@id, 'user')]
+        text()	Match visible text	//button[text()='Login']
+        parent::, ancestor::	Traverse up the DOM	//input/parent::div
+        following-sibling::	Select sibling element	//label/following-sibling::input
+
+        
+        7️⃣ XPath (Absolute vs Relative)
+        Absolute XPath: "/html/body/div[1]/input" (not recommended)
+        
+        Relative XPath: "//input[@type='text']"
+      
+        driver.find_element(By.XPATH, "//input[@type='email']").send_keys("abc@example.com")
+        8️⃣ CSS Selector
+       
+        driver.find_element(By.CSS_SELECTOR, "input[name='q']").send_keys("Selenium")
+
+📌 Sample Project Folder Structure
+   
+    selenium-python-demo/
+    ├── chromedriver.exe  # or added to PATH
+    ├── first_test.py
+    └── requirements.txt  # optional
+    Contents of requirements.txt:
+    
+    Install all dependencies at once:
+    
+    pip install -r requirements.txt
