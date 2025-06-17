@@ -313,4 +313,3 @@ pytest.main(["--html=reports/report.html", "--self-contained-html"])
 
 python run_tests.py
 
-
