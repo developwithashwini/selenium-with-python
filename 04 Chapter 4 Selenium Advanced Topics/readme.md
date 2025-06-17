@@ -3,7 +3,9 @@
 Dynamic elements are those that:
 
 -Load asynchronously (via JavaScript)
+
 -Change frequently (IDs, classes)
+
 -Appear after delays
 
 ✅ Common Examples:
