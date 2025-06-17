@@ -16,6 +16,7 @@ Modal pop-ups
 Notifications (toasts)
 
 ###🔧 Handling Dynamic Elements
+
 -Use Explicit Waits
 
 -Use stable locators (like XPath contains, CSS attributes)
@@ -107,7 +108,9 @@ driver = webdriver.Chrome(options=options)
   Used for:
 
   -Debugging
+  
   -Test reports
+  
   -Failures
 
 ✅ Logging Setup
@@ -139,7 +142,9 @@ driver = webdriver.Chrome(ChromeDriverManager().install())
 🧠 Why Headless?
 
   -CI/CD pipelines
+  
   -Faster tests
+  
   -No UI rendering
 
 ✅ Chrome Headless Mode:
@@ -158,7 +163,9 @@ driver.save_screenshot("result.png")
 Ensure app works in:
 
 -Chrome
+
 -Firefox
+
 -Edge
 
 ✅ Cross-Browser Setup
