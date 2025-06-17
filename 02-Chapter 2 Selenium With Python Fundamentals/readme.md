@@ -1,4 +1,4 @@
-[⬅️Previous](../README.md)                                                    [Next ➡️](03-Chapter 3 Selenium Webdriver Core Concepts/readme.md)
+[⬅️Previous](../README.md)                                           |         [Next ➡️](03-Chapter 3 Selenium Webdriver Core Concepts/readme.md)
 
 #📘 Chapter 2: Selenium with Python – Fundamentals
 
