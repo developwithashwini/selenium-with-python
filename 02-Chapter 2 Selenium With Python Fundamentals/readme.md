@@ -1,4 +1,4 @@
-[<<Previous](selenium-with-python/readme.md)
+
 #📘 Chapter 2: Selenium with Python – Fundamentals
 
 ##🌟 2.1 What is Selenium?
