@@ -6,28 +6,152 @@
     <title>Selenium With Python | by Ashwini</title>
 </head>
 <body>
-   <h1>📘 Master Selenium Python</h1>
-  <hr>
-  <p>
-    This repository is a complete and industry-relevant learning resource for mastering Selenium with Python. It is structured to help beginners to intermediate testers and developers gain hands-on experience in automation testing using Selenium WebDriver and Python, following real-time testing scenarios and best practices.
-  </p>
+    <h1>📘 Master Selenium Python</h1>
+    <hr>
+    <p>
+            This repository is a complete and industry-relevant learning resource for mastering            Selenium with Python. It is structured to help beginners to intermediate testers               and developers gain hands-on experience in automation testing using Selenium                WebDriver and Python, following real-time testing scenarios and best practices.
+    </p>
   <h1>Topics Covered</h1>
   <hr>
-  <h2>🔹 2. Selenium with Python – Fundamentals ✅ Topics:</h2>
-  <p>What is Selenium? Architecture Overview
+    <h2>🔹 2. Selenium with Python – Fundamentals ✅ Topics:</h2>
 
-Installation & Environment Setup
+    <ul>
+        <li>What is Selenium? Architecture Overview</li>
+        <li>Installation & Environment Setup</li>
+        <li>First Test Script in Selenium with Python</li>
+        <li>Locators in Selenium:</li>
+        <li>ID, Name, Class Name</li>
+        <li>Tag Name, Link Text, Partial Link Text</li>
+        <li>XPath (Absolute & Relative)</li>
+        <li>CSS Selectors</li>
+    </ul>
 
-First Test Script in Selenium with Python
+    <h2>🔹 3. Selenium WebDriver – Core Concepts ✅ Topics:</h2>
 
-Locators in Selenium:
+    <ul>
+        <li>Working with Web Elements:</li>
+        <li>find_element, find_elements</li>
+        <li>click(), send_keys(), text, get_attribute()</li>
+        <li>Handling: Radio Buttons, Checkboxes, Dropdowns</li>
+        <li>Alerts, Popups</li>
+        <li>Windows and Tabs</li>
+        <li>Frames and iFrames</li>
+        <li>Browser Navigation: forward(), back(), refresh()</li>
+        <li>get(), get_current_url(), get_title()</li>
+        <li>Implicit & Explicit Waits</li>
+        <li>JavaScript Execution with Selenium (execute_script)</li>
+        <li>Taking Screenshots</li>
+        <li>Working with ActionChains (Mouse Hover, Right Click, Drag & Drop)</li>
+        <li>Working with Cookies</li>
+    </ul>
 
-ID, Name, Class Name
+    <h2>🔹 4. Selenium Advanced Topics ✅ Topics:</h2>
 
-Tag Name, Link Text, Partial Link Text
+    <ul>
+        <li>Handling Dynamic Web Elements</li>
+        <li>Working with Tables and Pagination</li>
+        <li>Working with Auto-Suggestions</li>
+        <li>Uploading & Downloading Files</li>
+        <li>Capturing and Validating Logs</li>
+        <li>Working with WebDriverManager (for automatic driver downloads)</li>
+        <li>Running tests in Headless Mode</li>
+        <li>Working with different browsers: Chrome, Firefox, Edge, Safari</li>
+    </ul>
 
-XPath (Absolute & Relative)
+    <h2>🔹 5. Selenium Framework Architecture ✅ Topics:</h2>
 
-CSS Selectors</p>
+    <ul>
+        <li>Folder structure of Automation Framework</li>
+        <li>Page Object Model (POM) Design Pattern</li>
+        <li>Data-Driven Testing</li>
+        <li>Read data from Excel/CSV/JSON/XML</li>
+        <li>Keyword-Driven Testing (basic idea)</li>
+        <li>Hybrid Framework (POM + DDT)</li>
+    </ul>
+
+    <h2>🔹 6. Pytest – Testing Framework ✅ Topics:</h2>
+
+    <ul>
+        <li>Introduction to Pytest</li>
+        <li>Installing and Running Pytest</li>
+        <li>Writing Test Cases with Pytest</li>
+        <li>Naming Conventions and Discovery Rules</li>
+        <li>assert Statements</li>
+        <li>Fixtures: @pytest.fixture basics</li>
+        <li>Fixture Scope: function, class, module, session</li>
+        <li>Autouse Fixtures</li>
+        <li>Parametrization of Test Cases</li>
+        <li>Skipping Tests and Expected Failures</li>
+        <li>@pytest.mark.skip, skipif, xfail</li>
+        <li>Grouping Tests with Markers: @pytest.mark.smoke, @pytest.mark.regression, etc.</li>
+        <li>Running subsets of tests using markers or keywords</li>
+    </ul>
+
+    <h2>🔹 7. Pytest + Selenium Integration ✅ Topics:</h2>
+
+    <ul>
+        <li>Writing Selenium Tests using Pytest</li>
+        <li>Using Fixtures to initialize and quit the WebDriver</li>
+        <li>Using setup and teardown logic</li>
+        <li>Parametrizing test data with Fixtures</li>
+        <li>Handling failures and capturing screenshots</li>
+        <li>Re-running failed tests with plugins (pytest-rerunfailures)</li>
+        <li>Generating Reports:
+            <ul>
+                <li>HTML Report with pytest-html</li>
+                <li>Allure Report (Optional but powerful)</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h2>🔹 8. Test Automation Utilities ✅ Topics:</h2>
+
+    <ul>
+        <li>Logging with Python (logging module)</li>
+        <li>Screenshot capture on failure</li>
+        <li>Custom Wait Conditions</li>
+        <li>Test data generation (e.g., Faker)</li>
+        <li>Assertions and Validation Techniques</li>
+        <li>Emailing test reports using Python</li>
+    </ul>
+
+    <h2>🔹 9. Parallel Execution and Grid ✅ Topics:</h2>
+
+    <ul>
+        <li>Parallel Execution with:
+            <ul>
+                <li>pytest-xdist</li>
+                <li>pytest-parallel</li>
+            </ul>
+        </li>
+        <li>Selenium Grid:
+            <ul>
+                <li>What is Selenium Grid?</li>
+                <li>Hub and Node configuration</li>
+                <li>Running tests on Grid (locally or remotely)</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h2>🔹 10. CI/CD and Git Integration ✅ Topics: Git/GitHub Basics</h2>
+
+    <ul>
+        <li>Version Control of Framework</li>
+        <li>Running Pytest in Jenkins</li>
+        <li>Creating Jenkins pipeline for automated testing</li>
+        <li>Using GitHub Actions for test automation</li>
+        <li>Integrating Selenium Tests in CI/CD Pipeline</li>
+    </ul>
+
+     <h2>🔹 11. BDD with Selenium + Python (Optional but Beneficial) ✅ Topics:</h2>
+
+    <ul>
+        <li>Introduction to BDD</li>
+        <li>Gherkin Syntax: Feature, Scenario, Given-When-Then</li>
+        <li>Using behave or pytest-bdd with Selenium</li>
+        <li>Mapping feature files to step definitions</li>
+        <li>Generating BDD Reports</li>
+    </ul>
+    
 </body>
 </html>
