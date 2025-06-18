@@ -1,4 +1,4 @@
-[⬅️Previous](../README.md) | [Next ➡️](03-Chapter 3 Selenium Webdriver Core Concepts/readme.md)
+[⬅️Previous](../README.md) 
 
 #📘 Chapter 2: Selenium with Python – Fundamentals
 
@@ -469,4 +469,4 @@ Locators help Selenium find elements on a webpage (like buttons, input boxes, et
     pip freeze > requirements.txt
     This captures all currently installed packages and versions.
     
-    
+[Next ➡️](03-Chapter 3 Selenium Webdriver Core Concepts/readme.md)
