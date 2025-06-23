@@ -1,1 +1,341 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chapter 2: Selenium with Python – Fundamentals</title>
+  <style>
+    :root {
+      --bg-color: #f4f8fb;
+      --text-color: #1a1a1a;
+      --code-bg: #e0e0e0;
+      --pre-bg: #f0f0f0;
+      --highlight-bg: #fff9c4;
+      --blockquote-bg: #eaf4fe;
+      --link-color: #0077cc;
+    }
+
+    body.dark-mode {
+      --bg-color: #1e1e1e;
+      --text-color: #e0e0e0;
+      --code-bg: #2e2e2e;
+      --pre-bg: #2a2a2a;
+      --highlight-bg: #665c00;
+      --blockquote-bg: #2b3a4b;
+      --link-color: #66b2ff;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.7;
+      padding: 30px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    h1 {
+      font-size: 38px;
+      color: #003b73;
+      margin-bottom: 30px;
+    }
+    h2 {
+      font-size: 30px;
+      color: #004b8d;
+      margin-top: 40px;
+    }
+    h3 {
+      font-size: 24px;
+      color: #005792;
+      margin-top: 25px;
+    }
+    h4 {
+      font-size: 20px;
+      color: #006699;
+      margin-top: 20px;
+    }
+    p, li {
+      font-size: 17px;
+    }
+    ul {
+      margin-left: 20px;
+    }
+    code {
+      background: var(--code-bg);
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    pre {
+      background-color: var(--pre-bg);
+      border-left: 5px solid #005792;
+      padding: 16px;
+      overflow-x: auto;
+      margin: 20px 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 30px 0;
+      font-size: 16px;
+    }
+    th, td {
+      border: 1px solid #bbb;
+      padding: 10px;
+      text-align: left;
+    }
+    blockquote {
+      background-color: var(--blockquote-bg);
+      border-left: 5px solid #0077c2;
+      padding: 15px;
+      margin: 20px 0;
+      font-style: italic;
+    }
+    .highlight {
+      background-color: var(--highlight-bg);
+      padding: 10px 15px;
+      border-left: 5px solid #fbc02d;
+      margin: 20px 0;
+    }
+    a {
+      color: var(--link-color);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .next-link {
+      display: block;
+      margin-top: 50px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .toggle-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 10px 20px;
+      background: #0077cc;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .toggle-btn:hover {
+      background: #005fa3;
+    }
+  </style>
+</head>
+<body>
+  <button class="toggle-btn" onclick="document.body.classList.toggle('dark-mode')">Toggle Dark Mode</button>
+
+  <h1>📘 Chapter 2: Selenium with Python – Fundamentals</h1>
+  <hr>
+
+  <div id="content">
+    <h2>🌟 2.1 What is Selenium?</h2>
+    <p>Selenium is an open-source automation tool used for testing web applications across different browsers and platforms. It mimics real user actions like clicking buttons, typing in forms, navigating links, etc.</p>
+
+    <h3>✅ Why Selenium?</h3>
+    <ul>
+      <li>Supports multiple programming languages: Python, Java, C#, Ruby</li>
+      <li>Works on multiple browsers: Chrome, Firefox, Edge, Safari</li>
+      <li>Can be integrated with test frameworks like Pytest, Unittest, etc.</li>
+      <li>Supports parallel execution and CI/CD tools (e.g., Jenkins)</li>
+    </ul>
+
+    <h2>🧠 2.2 Selenium Architecture Overview</h2>
+    <p>Selenium has four main components:</p>
+    <ul>
+      <li>Selenium IDE – A browser plugin for recording scripts.</li>
+      <li>Selenium RC – Legacy tool (Deprecated).</li>
+      <li>Selenium WebDriver – Modern, robust automation framework.</li>
+      <li>Selenium Grid – For distributed test execution.</li>
+    </ul>
+
+    <h3>✅ 1. Selenium IDE</h3>
+    <p><strong>🛠 What is it?</strong><br>Selenium IDE is a browser extension (for Chrome and Firefox) that allows recording, editing, and debugging of functional tests.</p>
+    <ul>
+      <li>Click “Record” → It captures user actions like clicking, typing, etc.</li>
+      <li>It generates test cases in a tabular or script format.</li>
+      <li>Tests can be replayed directly.</li>
+    </ul>
+
+    <h3>❌ 2. Selenium RC (Remote Control)</h3>
+    <p><strong>🛠 What is it?</strong><br>Selenium RC was the original solution for automating browsers before WebDriver.</p>
+    <p><strong>✅ Why deprecated:</strong> Required server setup, slower, replaced by WebDriver.</p>
+
+    <h3>🚀 3. Selenium WebDriver – Modern Standard</h3>
+    <p>Allows direct control of browsers through language-specific bindings.</p>
+    <pre><code>[Test Script]
+↓
+[Selenium Client Library (Python)]
+↓
+[Browser Driver (e.g., ChromeDriver)]
+↓
+[Browser (e.g., Chrome)]</code></pre>
+
+    <h3>🌐 4. Selenium Grid</h3>
+    <p>Allows parallel test execution across machines and browsers. Useful for CI/CD.</p>
+
+    <h2>🛠️ 2.3 Installation & Environment Setup</h2>
+    <p><strong>✅ Step 1: Install Python</strong><br>Download from <a href="https://python.org">https://python.org</a> and ensure “Add Python to PATH” is checked.</p>
+    <pre><code>python --version</code></pre>
+
+    <p><strong>✅ Step 2: Install Selenium Library</strong></p>
+    <pre><code>pip install selenium</code></pre>
+
+    <h2>🧪 2.4 First Selenium Test Script in Python</h2>
+    <p><strong>✅ Test Case: Open Google and search for "Selenium"</strong></p>
+    <pre><code>from selenium import webdriver
+from selenium.webdriver.common.by import By
+import time
+
+driver = webdriver.Chrome()
+driver.get("https://www.google.com")
+
+search_box = driver.find_element(By.NAME, "q")
+search_box.send_keys("Selenium")
+search_box.submit()
+
+time.sleep(5)
+driver.quit()</code></pre>
+
+    <h2>🔍 2.5 Locators in Selenium</h2>
+    <p>Locators help Selenium find elements on a webpage.</p>
+
+    <h3>Common Locator Strategies:</h3>
+    <ul>
+      <li>ID – <code>find_element(By.ID, "username")</code></li>
+      <li>Name – <code>find_element(By.NAME, "email")</code></li>
+      <li>Class Name – <code>find_element(By.CLASS_NAME, "btn")</code></li>
+      <li>Tag Name – <code>find_element(By.TAG_NAME, "input")</code></li>
+      <li>Link Text – <code>find_element(By.LINK_TEXT, "Click Here")</code></li>
+      <li>Partial Link Text – <code>find_element(By.PARTIAL_LINK_TEXT, "Click")</code></li>
+      <li>XPath – <code>find_element(By.XPATH, "//input[@id='search']")</code></li>
+      <li>CSS Selector – <code>find_element(By.CSS_SELECTOR, "input[name='q']")</code></li>
+    </ul>
+
+    <h3>✅ Examples of Each Locator</h3>
+    <pre><code># ID
+driver.find_element(By.ID, "username").send_keys("admin")
+
+# Name
+driver.find_element(By.NAME, "password").send_keys("admin123")
+
+# Class Name
+driver.find_element(By.CLASS_NAME, "login-button").click()
+
+# Tag Name
+all_links = driver.find_elements(By.TAG_NAME, "a")
+for link in all_links:
+    print(link.text)
+
+# Link Text
+driver.find_element(By.LINK_TEXT, "Forgot Password?").click()
+
+# Partial Link Text
+driver.find_element(By.PARTIAL_LINK_TEXT, "Forgot").click()</code></pre>
+    <h3>🤔 Why use XPath?</h3>
+    <ul>
+      <li>When ID or class names are missing or dynamic</li>
+      <li>When elements are deeply nested</li>
+      <li>When you want to select elements based on text, relationships, or conditions</li>
+    </ul>
+
+    <h3>🧠 Types of XPath</h3>
+    <h4>1️⃣ Absolute XPath ❌</h4>
+    <p>It starts from the root of the HTML document and goes through each node until the desired element.</p>
+    <p><code>/html/body/div[1]/form/input[2]</code> – Brittle, not recommended</p>
+
+    <h4>2️⃣ Relative XPath ✅</h4>
+    <p>Uses double forward slashes to search anywhere in the document.</p>
+    <pre><code>//tagname[@attribute='value']</code></pre>
+    <p>Example:</p>
+    <pre><code>driver.find_element(By.XPATH, "//input[@id='username']")</code></pre>
+
+    <h4>🔍 XPath Syntax Variants</h4>
+    <pre><code>//input[@name='email']
+//input[contains(@name, 'user')]
+//input[starts-with(@id, 'user')]
+//button[text()='Submit']
+//a[contains(text(), 'Login')]</code></pre>
+
+    <h4>🔗 XPath Axes</h4>
+    <pre><code>//input[@id='email']/parent::div
+//label[text()='Username']/following-sibling::input
+//input[@id='password']/preceding-sibling::label
+//span[text()='Login']/ancestor::form</code></pre>
+
+    <h4>🛠 Real World Example</h4>
+    <pre><code>&lt;div class="form"&gt;
+  &lt;label for="email"&gt;Email:&lt;/label&gt;
+  &lt;input type="text" name="email" id="emailInput" /&gt;
+&lt;/div&gt;</code></pre>
+    <p>Example 1:</p>
+    <pre><code>driver.find_element(By.XPATH, "//input[@id='emailInput']")</code></pre>
+    <p>Example 2:</p>
+    <pre><code>driver.find_element(By.XPATH, "//label[text()='Email:']/following-sibling::input")</code></pre>
+
+    <h4>🚨 Common Mistakes</h4>
+    <ul>
+      <li>❌ Using absolute XPath</li>
+      <li>❌ Typos in tag/attribute</li>
+      <li>❌ Not escaping quotes</li>
+    </ul>
+
+    <h4>✅ Best Practices</h4>
+    <ul>
+      <li>Use relative XPath</li>
+      <li>Use contains()/starts-with()</li>
+      <li>Avoid deep absolute paths</li>
+    </ul>
+
+    <h3>✅ XPath Summary Table</h3>
+    <table>
+      <thead>
+        <tr><th>Syntax</th><th>Description</th><th>Example</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>//tag[@attr='value']</td><td>Basic selector</td><td>//input[@id='user']</td></tr>
+        <tr><td>contains()</td><td>Partial match</td><td>//a[contains(text(),'Sign')]</td></tr>
+        <tr><td>starts-with()</td><td>Start of attr</td><td>//input[starts-with(@id, 'user')]</td></tr>
+        <tr><td>text()</td><td>Match text</td><td>//button[text()='Login']</td></tr>
+        <tr><td>parent::, ancestor::</td><td>Traverse up</td><td>//input/parent::div</td></tr>
+        <tr><td>following-sibling::</td><td>Select sibling</td><td>//label/following-sibling::input</td></tr>
+      </tbody>
+    </table>
+
+    <h2>📌 Sample Project Folder Structure</h2>
+    <pre><code>selenium-python-demo/
+├── chromedriver.exe
+├── first_test.py
+└── requirements.txt</code></pre>
+
+    <h3>✅ requirements.txt</h3>
+    <p>Install all dependencies:</p>
+    <pre><code>pip install -r requirements.txt</code></pre>
+
+    <p><strong>Example contents:</strong></p>
+    <pre><code>selenium==4.18.1
+pytest
+requests</code></pre>
+
+    <h4>✅ Final Tip</h4>
+    <p>To create requirements.txt:</p>
+    <pre><code>pip freeze > requirements.txt</code></pre>
+
+    <a class="next-link" href="03-Chapter 3 Selenium Webdriver Core Concepts/readme.md">➡️ Next: Chapter 3 – Selenium WebDriver Core Concepts</a>
+  </div>
+
+  <script>
+    const btn = document.querySelector('.toggle-btn');
+    const isDark = localStorage.getItem('dark-mode') === 'true';
+    if (isDark) document.body.classList.add('dark-mode');
+    btn.addEventListener('click', () => {
+      const dark = document.body.classList.contains('dark-mode');
+      localStorage.setItem('dark-mode', !dark);
+    });
+  </script>
+</body>
+</html>
