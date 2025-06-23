@@ -4,18 +4,142 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Selenium With Python | by Ashwini</title>
-    <link rel="stylesheet" href="./style.css">
+<!--     <link rel="stylesheet" href="./style.css"> -->
+    <style>
+    :root {
+      --bg-color: #f4f8fb;
+      --text-color: #1a1a1a;
+      --code-bg: #e0e0e0;
+      --pre-bg: #f0f0f0;
+      --highlight-bg: #fff9c4;
+      --blockquote-bg: #eaf4fe;
+      --link-color: #0077cc;
+    }
+
+    body.dark-mode {
+      --bg-color: #1e1e1e;
+      --text-color: #e0e0e0;
+      --code-bg: #2e2e2e;
+      --pre-bg: #2a2a2a;
+      --highlight-bg: #665c00;
+      --blockquote-bg: #2b3a4b;
+      --link-color: #66b2ff;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.7;
+      padding: 30px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    h1 {
+      font-size: 38px;
+      color: #003b73;
+      margin-bottom: 30px;
+    }
+    h2 {
+      font-size: 30px;
+      color: #004b8d;
+      margin-top: 40px;
+    }
+    h3 {
+      font-size: 24px;
+      color: #005792;
+      margin-top: 25px;
+    }
+    h4 {
+      font-size: 20px;
+      color: #006699;
+      margin-top: 20px;
+    }
+    p, li {
+      font-size: 17px;
+    }
+    ul {
+      margin-left: 20px;
+    }
+    code {
+      background: var(--code-bg);
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    pre {
+      background-color: var(--pre-bg);
+      border-left: 5px solid #005792;
+      padding: 16px;
+      overflow-x: auto;
+      margin: 20px 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 30px 0;
+      font-size: 16px;
+    }
+    th, td {
+      border: 1px solid #bbb;
+      padding: 10px;
+      text-align: left;
+    }
+    blockquote {
+      background-color: var(--blockquote-bg);
+      border-left: 5px solid #0077c2;
+      padding: 15px;
+      margin: 20px 0;
+      font-style: italic;
+    }
+    .highlight {
+      background-color: var(--highlight-bg);
+      padding: 10px 15px;
+      border-left: 5px solid #fbc02d;
+      margin: 20px 0;
+    }
+    a {
+      color: var(--link-color);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .next-link {
+      display: block;
+      margin-top: 50px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .toggle-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 10px 20px;
+      background: #0077cc;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .toggle-btn:hover {
+      background: #005fa3;
+    }
+  </style>
 </head>
 <body>
+    <button class="toggle-btn" onclick="document.body.classList.toggle('dark-mode')">Toggle Dark Mode</button>
+
     <h1>📘 Master Selenium Python</h1>
     <hr>
     <p>
-            This repository is a complete and industry-relevant learning resource for mastering            Selenium with Python. It is structured to help beginners to intermediate testers               and developers gain hands-on experience in automation testing using Selenium                WebDriver and Python, following real-time testing scenarios and best practices.
+        This repository is a complete and industry-relevant learning resource for mastering
+        Selenium with Python. It is structured to help beginners to intermediate testers
+        and developers gain hands-on experience in automation testing using Selenium
+        WebDriver and Python, following real-time testing scenarios and best practices.
     </p>
-  <h1>Topics Covered</h1>
-  <hr>
+    <h1>Topics Covered</h1>
+    <hr>
     <h2>🔹 2. Selenium with Python – Fundamentals ✅ Topics:</h2>
-
     <ul>
         <li>What is Selenium? Architecture Overview</li>
         <li>Installation & Environment Setup</li>
@@ -28,7 +152,6 @@
     </ul>
 
     <h2>🔹 3. Selenium WebDriver – Core Concepts ✅ Topics:</h2>
-
     <ul>
         <li>Working with Web Elements:</li>
         <li>find_element, find_elements</li>
@@ -47,7 +170,6 @@
     </ul>
 
     <h2>🔹 4. Selenium Advanced Topics ✅ Topics:</h2>
-
     <ul>
         <li>Handling Dynamic Web Elements</li>
         <li>Working with Tables and Pagination</li>
@@ -60,7 +182,6 @@
     </ul>
 
     <h2>🔹 5. Selenium Framework Architecture ✅ Topics:</h2>
-
     <ul>
         <li>Folder structure of Automation Framework</li>
         <li>Page Object Model (POM) Design Pattern</li>
@@ -71,7 +192,6 @@
     </ul>
 
     <h2>🔹 6. Pytest – Testing Framework ✅ Topics:</h2>
-
     <ul>
         <li>Introduction to Pytest</li>
         <li>Installing and Running Pytest</li>
@@ -89,7 +209,6 @@
     </ul>
 
     <h2>🔹 7. Pytest + Selenium Integration ✅ Topics:</h2>
-
     <ul>
         <li>Writing Selenium Tests using Pytest</li>
         <li>Using Fixtures to initialize and quit the WebDriver</li>
@@ -106,7 +225,6 @@
     </ul>
 
     <h2>🔹 8. Test Automation Utilities ✅ Topics:</h2>
-
     <ul>
         <li>Logging with Python (logging module)</li>
         <li>Screenshot capture on failure</li>
@@ -117,7 +235,6 @@
     </ul>
 
     <h2>🔹 9. Parallel Execution and Grid ✅ Topics:</h2>
-
     <ul>
         <li>Parallel Execution with:
             <ul>
@@ -135,7 +252,6 @@
     </ul>
 
     <h2>🔹 10. CI/CD and Git Integration ✅ Topics: </h2>
-
     <ul>
         <li>Git/GitHub Basics</li>
         <li>Version Control of Framework</li>
@@ -145,8 +261,7 @@
         <li>Integrating Selenium Tests in CI/CD Pipeline</li>
     </ul>
 
-     <h2>🔹 11. BDD with Selenium + Python ✅ Topics:</h2>
-
+    <h2>🔹 11. BDD with Selenium + Python ✅ Topics:</h2>
     <ul>
         <li>Introduction to BDD</li>
         <li>Gherkin Syntax: Feature, Scenario, Given-When-Then</li>
@@ -156,5 +271,14 @@
     </ul>
 
     <a class="next" href="02-Chapter 2 Selenium With Python Fundamentals/index.html">Next ➡️</a>
+    <script>
+    const btn = document.querySelector('.toggle-btn');
+    const isDark = localStorage.getItem('dark-mode') === 'true';
+    if (isDark) document.body.classList.add('dark-mode');
+    btn.addEventListener('click', () => {
+      const dark = document.body.classList.contains('dark-mode');
+      localStorage.setItem('dark-mode', !dark);
+    });
+  </script>
 </body>
 </html>
