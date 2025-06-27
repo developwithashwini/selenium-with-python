@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 3: Selenium WebDriver – Core Concepts</title>
+    <link rel="stylesheet" href="./style.css">
+    <style>
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f4f8fb;
+        color: #1a1a1a;
+        line-height: 1.7;
+        padding: 30px;
+      }
+      h1, h2, h3, h4 {
+        color: #003b73;
+      }
+      h1 {
+        font-size: 32px;
+        margin-bottom: 20px;
+      }
+      h2 {
+        font-size: 26px;
+        margin-top: 30px;
+      }
+      h3 {
+        font-size: 22px;
+        margin-top: 20px;
+      }
+      h4 {
+        font-size: 18px;
+        margin-top: 15px;
+      }
+      p, li {
+        font-size: 16px;
+      }
+      pre {
+        background-color: #eef1f5;
+        border-left: 5px solid #0077cc;
+        padding: 15px;
+        overflow-x: auto;
+      }
+      code {
+        background-color: #e6e6e6;
+        padding: 2px 5px;
+        border-radius: 4px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 30px 0;
+        font-size: 15px;
+      }
+      th, td {
+        border: 1px solid #bbb;
+        padding: 10px;
+        text-align: left;
+      }
+      a.next {
+        display: inline-block;
+        margin-top: 30px;
+        font-weight: bold;
+        color: #0077cc;
+        text-decoration: none;
+      }
+      a.next:hover {
+        text-decoration: underline;
+      }
+    </style>
+</head>
+<body>
+  <h1>📘 Chapter 3: Selenium WebDriver – Core Concepts</h1>
+  <hr>
+
+  <h2>🔹 3.1 Working with Web Elements</h2>
+
+  <h3>✅ find_element() and find_elements()</h3>
+  <p>These are the most commonly used Selenium methods for locating HTML elements.</p>
+  <ul>
+    <li><code>find_element(by, value)</code> → Returns one WebElement</li>
+    <li><code>find_elements(by, value)</code> → Returns a list of WebElements</li>
+  </ul>
+  <pre><code>from selenium import webdriver
+from selenium.webdriver.common.by import By
+
+driver = webdriver.Chrome()
+driver.get("https://example.com")
+
+# Single element
+username_input = driver.find_element(By.ID, "username")
+
+# Multiple elements
+all_links = driver.find_elements(By.TAG_NAME, "a")</code></pre>
+
+  <h3>🔹 Why needed?</h3>
+  <p>You can’t interact with a page unless you can locate the HTML element.</p>
+
+  <h3>✅ click(), send_keys(), text, get_attribute()</h3>
+  <ul>
+    <li><code>click()</code> – Simulates a mouse click</li>
+    <li><code>send_keys()</code> – Types into an input box</li>
+    <li><code>.text</code> – Gets the visible text of an element</li>
+    <li><code>get_attribute()</code> – Gets the value of any HTML attribute</li>
+  </ul>
+  <pre><code>username_input.send_keys("admin")
+login_button = driver.find_element(By.ID, "submit")
+login_button.click()</code></pre>
+
+  <h2>🔹 3.2 Handling Radio Buttons and Checkboxes</h2>
+  <p><code>click()</code> to select:</p>
+  <pre><code>radio = driver.find_element(By.ID, "genderMale")
+radio.click()</code></pre>
+  <p>Check if selected:</p>
+  <pre><code>is_selected = radio.is_selected()</code></pre>
+
+  <h2>🔹 3.3 Handling Dropdowns</h2>
+  <p>Use the <code>Select</code> class.</p>
+  <pre><code>from selenium.webdriver.support.ui import Select
+
+dropdown = Select(driver.find_element(By.ID, "country"))
+dropdown.select_by_visible_text("India")</code></pre>
+
+  <h2>🔹 3.4 Handling Alerts & Popups</h2>
+  <pre><code>alert = driver.switch_to.alert
+print(alert.text)
+alert.accept()  # or alert.dismiss()</code></pre>
+
+  <h2>🔹 3.5 Handling Windows and Tabs</h2>
+  <pre><code>original = driver.current_window_handle
+all_windows = driver.window_handles
+
+driver.switch_to.window(all_windows[1])  # Go to new tab
+driver.switch_to.window(original)        # Come back</code></pre>
+
+  <h2>🔹 3.6 Handling Frames and iFrames</h2>
+  <pre><code>driver.switch_to.frame("frameName")
+# Interact inside the frame
+driver.switch_to.default_content()  # Exit frame</code></pre>
+
+  <h2>🔹 3.7 Browser Navigation</h2>
+  <pre><code>driver.get("https://google.com")
+driver.back()
+driver.forward()
+driver.refresh()</code></pre>
+
+  <h2>🔹 3.8 Get Current URL and Title</h2>
+  <pre><code>print(driver.current_url)
+print(driver.title)</code></pre>
+
+  <h2>🔹 3.9 Waits: Implicit & Explicit</h2>
+  <h3>✅ Implicit Wait</h3>
+  <pre><code>driver.implicitly_wait(10)</code></pre>
+  <h3>✅ Explicit Wait</h3>
+  <pre><code>from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
+wait = WebDriverWait(driver, 10)
+wait.until(EC.presence_of_element_located((By.ID, "username")))</code></pre>
+
+  <h2>🔹 3.10 JavaScript Execution</h2>
+  <pre><code>driver.execute_script("alert('Hello from JS!')")</code></pre>
+  <p>Used when:</p>
+  <ul>
+    <li>Element is hidden</li>
+    <li>Scroll, click via JS, or fetch values not exposed in DOM</li>
+  </ul>
+
+  <h2>🔹 3.11 Taking Screenshots</h2>
+  <pre><code>driver.save_screenshot("screenshot.png")</code></pre>
+
+  <h2>🔹 3.12 Working with ActionChains</h2>
+  <pre><code>from selenium.webdriver.common.action_chains import ActionChains
+
+actions = ActionChains(driver)
+element = driver.find_element(By.ID, "hoverMenu")
+
+actions.move_to_element(element).perform()       # Hover
+actions.context_click(element).perform()         # Right click
+
+# Drag and Drop
+source = driver.find_element(By.ID, "dragMe")
+target = driver.find_element(By.ID, "dropHere")
+actions.drag_and_drop(source, target).perform()</code></pre>
+
+  <h2>🔹 3.13 Working with Cookies</h2>
+  <pre><code># Get cookies
+print(driver.get_cookies())
+
+# Add cookie
+driver.add_cookie({'name': 'mycookie', 'value': '123456'})
+
+# Delete cookies
+driver.delete_all_cookies()</code></pre>
+
+  <h2>🧠 Summary</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Topic</th>
+        <th>Key Methods</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Web Elements</td><td>find_element, click(), send_keys()</td></tr>
+      <tr><td>Dropdowns</td><td>Select class</td></tr>
+      <tr><td>Alerts</td><td>switch_to.alert</td></tr>
+      <tr><td>Windows/Tabs</td><td>switch_to.window()</td></tr>
+      <tr><td>Frames</td><td>switch_to.frame()</td></tr>
+      <tr><td>Waits</td><td>implicitly_wait(), WebDriverWait</td></tr>
+      <tr><td>JavaScript</td><td>execute_script()</td></tr>
+      <tr><td>Screenshots</td><td>save_screenshot()</td></tr>
+      <tr><td>ActionChains</td><td>move_to_element(), context_click(), drag_and_drop()</td></tr>
+      <tr><td>Cookies</td><td>get_cookies(), add_cookie(), delete_all_cookies()</td></tr>
+    </tbody>
+  </table>
+
+  <a class="next" href="">Next ➡️</a>
+</body>
+</html>
